@@ -73,10 +73,10 @@ class Footer extends Component {
                                     <h4>Contact Us</h4>
                                     <h5>hello@silos.com</h5>
                                     <div className="social-links">
-                                        <a href="#" className="twitter"><i className="fas fa-twitter"></i></a>
-                                        <a href="#" className="facebook"><i className="fas fa-facebook"></i></a>
-                                        <a href="#" className="instagram"><i className="fas fa-instagram"></i></a>
-                                        <a href="#" className="linkedin"><i className="fas fa-linkedin"></i></a>
+                                        <a href="#" className="twitter"><i className="fab fa-twitter"></i></a>
+                                        <a href="#" className="facebook"><i className="fab fa-facebook"></i></a>
+                                        <a href="#" className="instagram"><i className="fab fa-instagram"></i></a>
+                                        <a href="#" className="linkedin"><i className="fab fa-linkedin"></i></a>
 
                                     </div>
                                 </div>
