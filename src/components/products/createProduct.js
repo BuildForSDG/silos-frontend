@@ -139,7 +139,7 @@ class CreateProduct extends Component {
                             <div className="row">
                                 <div className="form-group col-lg-12 col-md-12">
                                     <label>PICTURE:</label>
-                                    <input id="image" type="file" accept="image/gif, image/jpeg, image/png" onChange={this.onInputChange} className="form-control" />
+                                    <input id="image" type="file" accept="image/gif, image/jpeg, image/png" onChange={this.onInputChange} className="form-control" required />
                                 </div>
                             </div>
 
