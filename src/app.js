@@ -21,6 +21,7 @@ import setAuthToken from "../src/utils/setAuthToken";
 import { setCurrentUser } from "../src/actions/authActions";
 import CreateProduct from "./components/products/createProduct";
 import ViewProduct from "./components/products/viewProduct";
+import ViewUser from "./components/users/viewUser"
 
 import './app.css'
 import Footer from "./components/footer/footer";
@@ -59,6 +60,7 @@ function App() {
                     <Route path="/user/register" component={register} />
                     <Route path="/products/create" component={CreateProduct} />
                     <Route exact path='/products/view/:id' component={ViewProduct} />
+                    <Route exact path='/users/:id' component={ViewUser} />
                 </Switch>
                 <Footer />
             </BrowserRouter>
