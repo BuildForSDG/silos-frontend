@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types' //ES6
-import { Link } from "react-router-dom";
-import axios from 'axios';
-
+import { Link, withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 import logo from '../../images/logo.png';
 import pics from '../../images/silos-image.png';
-
-
+import { registerUser } from "../../actions/authActions"
 
 import './register.css'
-import SuccessAlert from '../alert/successAlert';
-import ErrorAlert from '../alert/errorAlert';
+// import SuccessAlert from '../alert/successAlert';
+// import ErrorAlert from '../alert/errorAlert';
+import Loading from '../Loading';
 
 
 class register extends Component {
@@ -27,74 +26,55 @@ class register extends Component {
             phoneNumber: '',
             password: '',
             confirmPassword: '',
-            firstNameError: '',
-            lastNameError: '',
-            emailError: '',
-            phoneNumberError: '',
-            passwordError: '',
-            alertMessage: ''
-
-
+            userType: '',
+            businessName: '',
+            address: '',
+            errors: {},
+            loading: false
         }
 
     };
 
+    componentDidMount() {
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push('/')
+        }
+    }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors, loading: false })
+        }
+    }
 
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
     };
 
 
-    /**    validate() {
-           let isError = false;
-           const errors = {
-               firstNameError: '',
-               lastNameError: '',
-               emailError: '',
-               phoneNumberError: '',
-               passwordError: '',
-               confirmPasswordError: ''
-   
-           };
-   
-           if (this.state.firstName.length < 1) {
-               isError = true;
-               errors.state.firstNameError = " Invalid First Name "
-           }
-   
-           if (this.state.lastName.length < 1) {
-               isError = true;
-               errors.state.lastNameError = " Invalid first Name "
-           }
-   
-           if (!this.state.email.indexOf("@") === -1) {
-               isError = true;
-               errors.state.emailError = "Requires a valid email"
-           }
-           this.setState({
-               ...this.state,
-               ...errors
-           });
-   
-           return isError;
-   
-   
-       };
-       */
-
     onSubmit(e) {
         e.preventDefault();
+        this.setState({ errors: {} })
+
+        if (this.state.password !== this.state.confirmPassword) {
+            this.setState({ errors: { password: "password does not match " } })
+            return
+        }
+
+        this.setState({ loading: true })
+
         const user = {
             firstName: this.state.firstName,
             lastName: this.state.lastName,
             email: this.state.email,
             phoneNumber: this.state.phoneNumber,
-            password: this.state.password
-
-
+            password: this.state.password,
+            businessName: this.state.businessName,
+            address: this.state.address,
+            userType: this.state.userType
         }
 
+<<<<<<< HEAD
         axios.post('http://silos-app.herokuapp.com/api/vi/auth/register', user).then(res => {
             this.setState({ alertMessage: "success" })
         }).catch(error => {
@@ -102,17 +82,18 @@ class register extends Component {
         });
 
 
+=======
+        this.props.registerUser(user, this.props.history)
+>>>>>>> 1e86f28c3ae906c4326cc58c4419edb3bc952b25
     }
 
     render() {
+        const { errors, loading } = this.state
         return (
             <div className='register' id="parent">
                 <div className="row" id="rowdiv">
                     <div className="col-lg-6 col-md-12 reg-div" id="reg-div">
-                        {this.setState.alertMessage == "success" ? <SuccessAlert /> : null}
-                        {this.setState.alertMessage == "error" ? <ErrorAlert /> : null}
-
-
+                        {loading && <Loading />}
 
                         <Link to="/" className="brand"><img src={logo} alt="silos-logo"></img></Link>
                         <form onSubmit={this.onSubmit}>
@@ -121,43 +102,75 @@ class register extends Component {
                                 <div className="form-group col-lg-6 col-md-6">
                                     <label >FIRST NAME:</label>
                                     <input name="firstName" id="firstName" type="text" value={this.state.firstName} onChange={this.onChange} className="form-control" required />
+                                    {errors.firstName && <p className="text-danger text-lowercase" > {errors.firstName}</p>}
                                 </div>
 
                                 <div className="form-group col-lg-6 col-md-6">
                                     <label >LAST NAME:</label>
                                     <input name="lastName" id="lastName" type="text" value={this.state.lastName} onChange={this.onChange} className="form-control" required />
+                                    {errors.lastName && <p className="text-danger text-lowercase" > {errors.lastName}</p>}
                                 </div>
 
                             </div>
                             <div className="row">
-                                <div className="form-group col-lg-12">
+                                <div className="form-group col-lg-12 col-lg-6">
                                     <label >EMAIL:</label>
                                     <input name="email" id="email" type="text" value={this.state.email} onChange={this.onChange} className="form-control" required />
+                                    {errors.email && <p className="text-danger text-lowercase" > {errors.email}</p>}
                                 </div>
                             </div>
 
                             <div className="row">
-                                <div className="form-group col-lg-12">
+                                <div className="form-group col-lg-6 col-md-6">
                                     <label >PHONE NUMBER:</label>
                                     <input name="phoneNumber" id="phoneNumber" type="phone" value={this.state.phoneNumber} onChange={this.onChange} className="form-control" required />
+                                    {errors.phoneNumber && <p className="text-danger text-lowercase" > {errors.phoneNumber}</p>}
+                                </div>
+                                <div className=" form-group col-md-6 col-lg-6">
+                                    <label >BUSINESS NAME:</label>
+                                    <input name="businessName" id="businessName" type="phone" value={this.state.businessName} onChange={this.onChange} className="form-control" required />
+                                    {errors.businessName && <p className="text-danger text-lowercase" > {errors.businessName}</p>}
                                 </div>
                             </div>
 
                             <div className="row">
-                                <div className="form-group col-lg-12">
+                                <div className="form-group col-lg-12 col-md-12">
                                     <label>PASSWORD:</label>
                                     <input name="password" id="password" type="password" value={this.state.password} onChange={this.onChange} className="form-control" required />
+                                    {errors.password && <p className="text-danger text-lowercase" > {errors.password}</p>}
                                 </div>
                             </div>
 
                             <div className="row">
-                                <div className="form-group col-lg-12">
+                                <div className="form-group col-lg-12 col-md-12">
                                     <label>CONFIRM PASSWORD:</label>
                                     <input name="confirmPassword" id="confirmPassword" type="password" value={this.state.confirmPassword} onChange={this.onChange} className="form-control" required />
                                 </div>
                             </div>
 
-                            <button className="submit col-lg-12" type="submit">REGISTER</button>
+                            <div className="row">
+                                <div className="form-group col-lg-12 col-md-12">
+                                    <label>ADDRESS:</label>
+                                    <input name="address" id="address" type="text" value={this.state.address} onChange={this.onChange} className="form-control" required />
+                                    {errors.address && <p className="text-danger text-lowercase" > {errors.address}</p>}
+                                </div>
+                            </div>
+
+                            <div className="row">
+                                <div className="form-group col-lg-12 col-md-12">
+                                    <label>USERTYPE:</label>
+                                    <select className="form-control" id="userType" name="userType" selected={this.state.userType} onChange={this.onChange} required>
+                                        <option value=""></option>
+                                        <option value="producer">Producer</option>
+                                        <option value="financial-institution">Financial Institution</option>
+                                        <option value="retailer">Retailer</option>
+                                    </select>
+                                    {errors.userType && <p className="text-danger text-lowercase" > {errors.userType}</p>}
+                                </div>
+                            </div>
+
+
+                            <button className="submit col-lg-12" type="submit" disabled={this.state.loading} >REGISTER</button>
                             <p className="haveAccount"> Already have an account? <Link to="/user/login" className="haveAccountLink">Log in</Link></p>
 
 
@@ -176,7 +189,12 @@ class register extends Component {
 }
 
 register.propTypes = {
-
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
 };
-
-export default register
+const mapStateToprops = state => ({
+    auth: state.auth,
+    errors: state.errors
+})
+export default connect(mapStateToprops, { registerUser })(withRouter(register))
