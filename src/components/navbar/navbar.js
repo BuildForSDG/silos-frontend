@@ -31,6 +31,10 @@ class Navbar extends Component {
                         {user.email}
                     </li>
 
+                    <li className="nav-item">
+                        <Link to="/products/create" className="nav-link">Create Product</Link>
+                    </li>
+
                     <li
                         onClick={this.onLogoutClick.bind(this)}
                         className='nav-link'
@@ -64,12 +68,6 @@ class Navbar extends Component {
                         </li>
                         <li className="nav-item">
                             <Link to="/about" className="nav-link">About</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/categories" className="nav-link">Categories</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/support" className="nav-link">Support</Link>
                         </li>
 
                         {authLinks}

@@ -18,7 +18,9 @@ import register from "./components/register/register";
 import Navbar from "./components/navbar/navbar";
 import Alert from "./components/alert/alert";
 import setAuthToken from "../src/utils/setAuthToken";
-import { setCurrentUser } from "../src/actions/authActions"
+import { setCurrentUser } from "../src/actions/authActions";
+import CreateProduct from "./components/products/createProduct";
+import ViewProduct from "./components/products/viewProduct";
 
 import './app.css'
 import Footer from "./components/footer/footer";
@@ -55,6 +57,8 @@ function App() {
                     <Route path="/support" component={support} />
                     <Route path="/user/login" component={login} />
                     <Route path="/user/register" component={register} />
+                    <Route path="/products/create" component={CreateProduct} />
+                    <Route exact path='/products/view/:id' component={ViewProduct} />
                 </Switch>
                 <Footer />
             </BrowserRouter>

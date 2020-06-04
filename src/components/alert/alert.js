@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 
 
-class SuccessAlert extends Component {
+class Alert extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -40,10 +40,10 @@ class SuccessAlert extends Component {
     }
 }
 
-SuccessAlert.propTypes = {
+Alert.propTypes = {
     notification: PropTypes.object.isRequired
 };
 const mapStateToprops = state => ({
     notification: state.notification
 })
-export default connect(mapStateToprops)(SuccessAlert)
+export default connect(mapStateToprops)(Alert)
