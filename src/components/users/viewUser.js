@@ -4,7 +4,8 @@ import Loading from '../Loading';
 import { getUser } from "../../actions/userActions";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
-import blankImage from "../../images/blank-user.gif"
+import blankImage from "../../images/blank-user.gif";
+import UsersProductsSidebar from "./usersProductsSidebar"
 
 
 import './users.css'
@@ -23,7 +24,6 @@ class ViewUser extends Component {
         const user = await getUser(this.props.match.params.id);
         if (user) {
             this.setState({ loading: false, user })
-            console.log(user)
         } else {
             this.setState({ loading: false })
         }
@@ -38,9 +38,7 @@ class ViewUser extends Component {
                 {loading && <Loading />}
                 <div className="card pt-5" style={{ "width": "100%" }}>
                     { user.firstName && <h3 className="card-title pt-2 text-center heading">{user.firstName}'s Profile</h3>}
-                    <div className="row d-flex justify-content-center" style={{ "width": "80%" }}>
-                        <div className="col-md-1">
-                        </div>
+                    <div className="row d-flex justify-content-center" style={{ "width": "100%" }}>
                         <div className="col-md-4">
                             <img src={userImage} className="card-img rounded img-thumbnail pt-5" alt={user.firstName} />
                         </div>
@@ -55,8 +53,11 @@ class ViewUser extends Component {
                                     <Link to={"/users/" + user.userId + "/products"} className="card-link">View Products</Link></small> </p>}
                             </div>
                         </div>
-                        <div className="col-md-3 pt-3">
-                            {user.userType === "producer" && <h5 className="heading text-center">Users Products</h5>}
+                        <div className="col-md-4 pt-3">
+                            {user.userType === "producer" && <div>
+                                <h5 className="heading text-center">Users Products</h5>
+                                    <UsersProductsSidebar userId={user.id} />
+                                </div>}
                         </div>
                     </div>
                 </div>

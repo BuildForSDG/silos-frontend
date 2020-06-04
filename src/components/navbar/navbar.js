@@ -27,7 +27,7 @@ class Navbar extends Component {
         if (isAuthenticated) {
             authLinks = (
                 <ul className="navbar-nav nav-item-right">
-                    <li className="nav-link">
+                    <li className="nav-item">
                         <Link to={"/users/" + user.id} className="nav-link">{user.email}</Link>
                     </li>
 

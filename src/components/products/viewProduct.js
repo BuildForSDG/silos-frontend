@@ -5,6 +5,7 @@ import Loading from '../Loading';
 import { getProduct } from "../../actions/productActions";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import UsersProductsSidebar from "../users/usersProductsSidebar"
 
 class ViewProduct extends Component {
     constructor(props) {
@@ -20,7 +21,6 @@ class ViewProduct extends Component {
         const product = await getProduct(this.props.match.params.id);
         if (product) {
             this.setState({ loading: false, product })
-            console.log(product)
         } else {
             this.setState({ loading: false })
         }
@@ -33,10 +33,8 @@ class ViewProduct extends Component {
                 {loading && <Loading />}
 
                 <div className="card pt-5" style={{ "width": "100%" }}>
-                <h3 className="card-title pt-2 text-center heading">{product.productName}</h3>
-                    <div className="row d-flex justify-content-center" style={{ "width": "80%" }}>
-                        <div className="col-md-1">
-                        </div>
+                    <h3 className="card-title pt-2 text-center heading">{product.productName}</h3>
+                    <div className="row d-flex justify-content-center" style={{ "width": "100%" }}>
                         <div className="col-md-4">
                             <img src={product.image} className="card-img rounded img-thumbnail pt-5" alt={product.productName} />
                         </div>
@@ -50,8 +48,9 @@ class ViewProduct extends Component {
                                     <small className="text-muted"> <Link to={"/users/" + product.userId} className="card-link">Call to Order</Link></small></p>
                             </div>
                         </div>
-                        <div className="col-md-3 pt-3">
+                        <div className="col-md-4 pt-3">
                             <h5 className="heading text-center">More from this Producer</h5>
+                            {product.userId && <UsersProductsSidebar userId={product.userId} />}
                         </div>
                     </div>
                 </div>
