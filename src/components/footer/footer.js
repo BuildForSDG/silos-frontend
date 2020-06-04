@@ -40,9 +40,7 @@ class Footer extends Component {
                             <div className="row">
                                 <div className="col-lg-4 col-md-6 footer-info">
                                     <h4>SILOS</h4>
-                                    <p>We will boost your skills and profile,
-                                        provide you with personalized career guidance and
-                                        match you with the right opportunities,so that you can be the best and the brightest
+                                    <p>Here on silos, you can purchase fresh, natural farm produce directly from farmers near you and across the world at affordable prices and have then delivered to your door step.
                                      </p>
                                 </div>
                                 <div className="col-lg-3 col-md-6 footer-links">

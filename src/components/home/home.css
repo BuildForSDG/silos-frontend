@@ -1,4 +1,22 @@
-.component-home {
-    background-color: #fdefde;
-    color: #321321;
+.header{
+    background-color: #fdebe3;
+    color: #000000;
+}
+.header-image{
+    margin: 20px;
+}
+
+img{
+    max-width: 100%;
+}
+
+#left{
+    background-color: white;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+
+button{
+    height: 50px;
 }

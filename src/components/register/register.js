@@ -95,7 +95,7 @@ class register extends Component {
 
         }
 
-        axios.post('http://silos-staging.herokuapp.com/api/vi/auth/register', user).then(res => {
+        axios.post('http://silos-app.herokuapp.com/api/vi/auth/register', user).then(res => {
             this.setState({ alertMessage: "success" })
         }).catch(error => {
             this.setState({ alertMessage: "error" })
@@ -118,12 +118,12 @@ class register extends Component {
                         <form onSubmit={this.onSubmit}>
                             <div className="row">
 
-                                <div className="form-group col-lg-6 col-md-6 col-sm-6">
+                                <div className="form-group col-lg-6 col-md-6">
                                     <label >FIRST NAME:</label>
                                     <input name="firstName" id="firstName" type="text" value={this.state.firstName} onChange={this.onChange} className="form-control" required />
                                 </div>
 
-                                <div className="form-group col-lg-6 col-md-6 col-sm-6">
+                                <div className="form-group col-lg-6 col-md-6">
                                     <label >LAST NAME:</label>
                                     <input name="lastName" id="lastName" type="text" value={this.state.lastName} onChange={this.onChange} className="form-control" required />
                                 </div>
