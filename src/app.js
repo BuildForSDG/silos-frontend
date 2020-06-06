@@ -11,7 +11,7 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 import home from "./components/home/home";
 import about from "./components/about/about";
-import categoriess from "./components/categories/categoriess";
+import categories from "./components/categories/categories";
 import support from "./components/support/support";
 import login from "./components/login/login";
 import register from "./components/register/register";

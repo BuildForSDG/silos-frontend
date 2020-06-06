@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types' //ES6
 
 
-import './categoriess.css'
+import './categories.css'
 import Loading from '../Loading';
 
 
-class categoriess extends Component {
+class categories extends Component {
     constructor(props){
         super(props) 
         this.state = {
@@ -27,8 +27,8 @@ class categoriess extends Component {
     }
 }
 
-categoriess.propTypes = {
+categories.propTypes = {
 
 };
 
-export default categoriess
+export default categories

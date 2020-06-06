@@ -10,7 +10,6 @@ import about4 from '../../images/about4.png';
 
 
 import './home.css'
-import categoriess from '../categories/categoriess';
 
 class home extends Component {
     constructor(props) {
@@ -21,7 +20,8 @@ class home extends Component {
 
         this.state = {
             product: '',
-            location: ''
+            location: '',
+            categories: []
 
         }
     }
