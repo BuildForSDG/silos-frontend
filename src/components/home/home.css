@@ -2,6 +2,34 @@
     background-color: #fdebe3;
     color: #000000;
 }
+
+@media only screen and (max-width: 1000px){
+    .header{
+        background: url("../../images/home-cover.png") no-repeat ;
+        max-width: 100%;
+        background-size: cover;
+        background-attachment:fixed;
+    
+    }
+
+    .left-header{
+        margin-top: 50px;
+    }
+    
+    .text{
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .header-image{
+        display: none;
+    }
+}
+
+.left-header{
+    margin-top: 120px;
+}
 .header-image{
     margin: 20px;
 }
@@ -10,13 +38,83 @@ img{
     max-width: 100%;
 }
 
-#left{
+.searchForm{
     background-color: white;
-    justify-content: center;
     padding-top: 15px;
 }
-
-
-button{
-    height: 50px;
+.form-group{
+    padding-top: 10px;
+    width: 100%;
 }
+.button{
+    padding-top: 10px;
+}
+.search-button{
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color:#f0642b;
+    border: none;
+}
+.link{
+    color: #f0642b
+
+}
+.link:hover{
+    color: #fdebe3;
+}
+
+
+/**categories section */
+
+.categories{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+/**categories section */
+.about{
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.about-text{
+    margin-top: 30px;
+}
+
+.about h6{
+    color: #f0642b;
+}
+
+#about-button{
+    background: #f0642b;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    width: 200px;
+    border-radius: 50px;
+}
+
+.images{
+    margin-left: 50px;
+}
+
+.images-row1{
+    padding-top: 50px;
+
+}
+
+/**featured products section */
+
+.featured-products{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: rgb(207, 204, 204);
+}
+
+ h6{
+    color: #f0642b;
+}
+

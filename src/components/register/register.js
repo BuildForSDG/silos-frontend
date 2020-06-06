@@ -74,7 +74,6 @@ class register extends Component {
             userType: this.state.userType
         }
 
-<<<<<<< HEAD
         axios.post('http://silos-app.herokuapp.com/api/vi/auth/register', user).then(res => {
             this.setState({ alertMessage: "success" })
         }).catch(error => {
@@ -82,9 +81,6 @@ class register extends Component {
         });
 
 
-=======
-        this.props.registerUser(user, this.props.history)
->>>>>>> 1e86f28c3ae906c4326cc58c4419edb3bc952b25
     }
 
     render() {

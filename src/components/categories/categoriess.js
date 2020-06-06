@@ -3,6 +3,8 @@ import PropTypes from 'prop-types' //ES6
 
 
 import './categoriess.css'
+import Loading from '../Loading';
+
 
 class categoriess extends Component {
     constructor(props){
@@ -10,6 +12,10 @@ class categoriess extends Component {
         this.state = {
         
         }
+    }
+
+   async componentDidMount() {
+        const url = "silos-app.herokuapp.com/api/v1/categories"
     }
 
     render(){
