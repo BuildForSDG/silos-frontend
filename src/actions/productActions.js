@@ -45,10 +45,7 @@ export const getProduct = async (id) => {
         const { data } = res.data;
         return data
     } catch (error) {
-        dispatch({
-            type: NOTIFICATION,
-            payload: { status: "failed", message: error.response.data.errors.message }
-        })
+        dispatchNotification (error.response.data.errors.message)
     }
 }
 
@@ -58,10 +55,23 @@ export const getCategories = async () => {
         const { data } = res.data;
         return data.categories
     } catch (error) {
-        dispatch({
-            type: NOTIFICATION,
-            payload: { status: "failed", message: error.response.data.errors.message }
-        })
+        dispatchNotification (error.response.data.errors.message)
     }
 }
 
+export const getProducts = async (page) => {
+    try {
+        const res = await axios.get(`${URL}/products?page=${page}`)
+        const { data } = res.data;
+        return data
+    } catch (error) {
+       dispatchNotification (error.response.data.errors.message)
+    }
+}
+
+export const dispatchNotification = message => dispatch => {
+    dispatch({
+        type: NOTIFICATION,
+        payload: { status: "failed", message }
+    })
+}

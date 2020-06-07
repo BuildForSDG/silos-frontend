@@ -17,6 +17,7 @@ class ViewProduct extends Component {
     }
 
     async componentDidMount() {
+        // console.log(this.props.match.params.id)
         this.setState({ loading: true })
         const product = await getProduct(this.props.match.params.id);
         if (product) {

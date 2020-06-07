@@ -61,7 +61,7 @@ class Login extends Component {
     render() {
         const { errors, loading } = this.state
         return (
-            <div className='login' id="parent">
+            <div className='login' id="login">
                 <div className="row" id="rowdiv">
                     <div className="col-lg-6 col-md-12 reg-div" id="reg-div">
                         {loading && <Loading />}
