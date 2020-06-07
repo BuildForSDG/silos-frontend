@@ -1,21 +1,34 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types' //ES6
+import Loading from '../Loading';
+import { getCategories } from "../../actions/productActions";
+import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
+
 
 
 import './categories.css'
-import Loading from '../Loading';
 
 
 class categories extends Component {
     constructor(props){
         super(props) 
         this.state = {
+            category: {},
+            loading: false
+
         
         }
     }
 
-   async componentDidMount() {
-        const url = "silos-app.herokuapp.com/api/v1/categories"
+    async componentDidMount() {
+        this.setState({ loading: true })
+        const category = await getCategories(this.props.match.params);
+        if (category) {
+            this.setState({ loading: false, category })
+        } else {
+            this.setState({ loading: false })
+        }
     }
 
     render(){

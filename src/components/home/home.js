@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types' //ES6
 import { Link, withRouter } from "react-router-dom";
+import { getProduct } from "../../actions/productActions";
+import { connect } from 'react-redux';
+
 
 import headerImage from '../../images/home-cover.png';
 import about1 from '../../images/about1.png';
@@ -21,10 +24,24 @@ class home extends Component {
         this.state = {
             product: '',
             location: '',
-            categories: []
+            products: {},
+            loading: false
+
 
         }
     }
+
+
+    async componentDidMount() {
+        this.setState({ loading: true })
+        const product = await getProduct(this.props.match.params.id);
+        if (product) {
+            this.setState({ loading: false, product })
+        } else {
+            this.setState({ loading: false })
+        }
+    }
+
 
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value });
@@ -39,6 +56,8 @@ class home extends Component {
 
 
     render() {
+        const { product, category } = this.state;
+
         return (
             <div className='component-home'>
                 <div className="header">
@@ -84,13 +103,46 @@ class home extends Component {
                         <h3>Categories</h3>
                     </div>
 
-                    <div className="">
+                    <div className="row">
 
-                        {categories.map(category => {
-                            return (
-                                <div> thumbnail</div>
-                            )
-                        })}
+                        <div class="card col-lg-3 col-md-6" id="categories">
+                            <img class="card-img" src={about1}></img>
+                            <div class="card-body">
+                                <h5 class="card-title">Fruits</h5>
+                                <p class="card-text">Apples, pawpaw, pineapples, oranges...</p>
+                                <button class="explore" type="button">explore</button>
+                            </div>
+                        </div>
+
+                        <div class="card col-lg-3 col-md-6" id="categories">
+                            <img class="card-img" src={about2}></img>
+                            <div class="card-body">
+                                <h5 class="card-title">Poultry</h5>
+                                <p class="card-text">Eggs, chicken, gizard, ducks, turkey...</p>
+                                <button class="explore" type="button">explore</button>
+                            </div>
+                        </div>
+
+                        <div class="card col-lg-3 col-md-6" id="categories">
+                            <img class="card-img" src={about4}></img>
+                            <div class="card-body">
+                                <h5 class="card-title">Livestock</h5>
+                                <p class="card-text">Apples, pawpaw, pineapples, oranges...</p>
+                                <button class="explore" type="button">explore</button>
+                            </div>
+                        </div>
+
+                        <div class="card col-lg-3 col-md-6" id="categories">
+                            <img class="card-img" src={about3}></img>
+                            <div class="card-body">
+                                <h5 class="card-title">Seafood and fishes</h5>
+                                <p class="card-text">Apples, pawpaw, pineapples, oranges...</p>
+                                <button class="explore" type="button">explore</button>
+                            </div>
+                        </div>
+
+
+
                     </div>
                 </div>
 
@@ -126,6 +178,31 @@ class home extends Component {
                     <div className="container">
                         <h6>Explore</h6>
                         <h3>Our featured products</h3>
+
+                        {this.state.products.slice(0, 4).map(product => {
+
+
+                            <div className="row">
+
+                                <div class="card col-lg-3" id="products">
+                                    <img class="card-img" src={product.image}></img>
+                                    <div class="card-body">
+                                        <h5 class="card-title heading">{product.productName}</h5>
+                                        {product.availableQuantity && <p className="card-text">Quantity Available {product.availableQuantity}</p>}
+                                        {product.price && <p className="card-text">Amount: N{product.price} per {product.unit} Units </p>}
+
+                                        <hr></hr>
+                                        <p class="card-text" style={{ "textAlign": "left" }}>{product.userName}</p>
+                                        <p className="card-text" style={{ "textAlign": "right" }}><small className="text-muted"> <Link to={"/prducts/view/" + product.id} className="card-link">Details</Link></small> </p>
+                                        <p class="card-text">{product.userLocation}</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        })}
+
+
                     </div>
                 </div>
             </div>

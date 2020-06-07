@@ -70,7 +70,12 @@ img{
 .categories{
     margin-top: 30px;
     margin-bottom: 30px;
-    background-color: white;
+}
+
+#categories{
+    text-align: center;
+    
+
 }
 
 /**categories section */
@@ -118,3 +123,34 @@ img{
     color: #f0642b;
 }
 
+
+#products{
+    background: white;
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    height: 400px;
+}
+
+.card img{
+    align-self: center;
+    height: 200px;
+}
+
+
+.explore{
+    margin-top: 5px;
+    height:50px;
+    width:100px;
+    color: #f0642b;
+    background-color: #fdebe3;
+    border-radius: 30px;
+    cursor: pointer;
+
+}
+
+
+.card-link{
+    color: #f0642b;
+    background-color: #fdebe3;
+}
