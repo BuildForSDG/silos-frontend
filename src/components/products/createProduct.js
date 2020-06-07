@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import logo from '../../images/logo.png';
 import { createProduct, getCategories } from "../../actions/productActions"
 
-import './products.css'
+import './products.scss'
 import Loading from '../Loading';
 
 
@@ -87,7 +87,7 @@ class CreateProduct extends Component {
     render() {
         const { errors, loading, categories } = this.state
         return (
-            <div className='create-product' id="parent">
+            <div className='create-product products' id="parent">
                 <div className="row" id="rowdiv">
                     <div className="col-lg-12 col-md-12 reg-div" id="reg-div">
                         {loading && <Loading />}

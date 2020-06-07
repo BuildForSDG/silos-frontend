@@ -4,7 +4,7 @@ import PropTypes from 'prop-types' //ES6
 import logo from '../../images/logo.png';
 import { logoutUser } from "../../actions/authActions";
 import { connect } from 'react-redux';
-import './navbar.css'
+import './navbar.scss'
 
 class Navbar extends Component {
     constructor(props) {

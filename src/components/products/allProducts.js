@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './allProducts.css'
+import './allProducts.scss'
 import Loading from '../Loading';
 import { getProducts } from "../../actions/productActions";
 import { connect } from 'react-redux';

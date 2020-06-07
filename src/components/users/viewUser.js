@@ -8,7 +8,7 @@ import blankImage from "../../images/blank-user.gif";
 import UsersProductsSidebar from "./usersProductsSidebar"
 
 
-import './users.css'
+import './users.scss'
 
 class ViewUser extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ class ViewUser extends Component {
         const userImage = user.photo ? user.photo : blankImage;
 
         return (
-            <div className="view-user">
+            <div className="view-user users">
                 {loading && <Loading />}
                 <div className="card pt-5" style={{ "width": "100%" }}>
                     { user.firstName && <h3 className="card-title pt-2 text-center heading">{user.firstName}'s Profile</h3>}

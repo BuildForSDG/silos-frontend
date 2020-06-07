@@ -6,7 +6,7 @@ import logo from '../../images/logo.png';
 import pics from '../../images/silos-image.png';
 import { loginUser } from "../../actions/authActions"
 
-import './login.css'
+import './login.scss'
 import Loading from '../Loading';
 
 
@@ -86,7 +86,7 @@ class Login extends Component {
                             </div>
 
                             <div className="d-flex justify-content-center">
-                                <button className="submit submit-btn" type="submit" disabled={this.state.loading} >LOGIN</button>
+                                <button className="submit submit-btn btn" type="submit" disabled={this.state.loading} >LOGIN</button>
                             </div>
                             <p className="haveAccount"> Already have an account? <Link to="/user/login" className="haveAccountLink">Log in</Link></p>
 

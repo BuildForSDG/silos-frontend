@@ -1,0 +1,33 @@
+.component-about {
+  background-color: #fdebe3;
+  color: #000000;
+  margin-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 30px;
+
+  .about-us-image {
+    width: 100%;
+    max-width: 100%;
+    max-height: auto;
+  }
+
+  .about {
+    padding: 20px;
+    background: white;
+    color: black;
+  }
+
+  .mission {
+    padding: 20px;
+    background: white;
+  }
+
+  #about-text {
+    color: #f0642b;
+  }
+
+  #ourmission {
+    margin-bottom: 20px;
+    color: #f0642b;
+  }
+}

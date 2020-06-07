@@ -5,7 +5,7 @@ import { getUserProducts } from '../../actions/userActions';
 import { Link } from "react-router-dom";
 
 
-import './users.css'
+import './users.scss'
 
 class UsersProductsSidebar extends Component {
     constructor(props) {
@@ -31,7 +31,7 @@ class UsersProductsSidebar extends Component {
     render() {
         const { loading, products } = this.state
         return (
-            <div className='Users-Products-Sidebar'>
+            <div className='Users-Products-Sidebar users'>
                 {loading && <Loading />}
                 <div className="row">
                     {products.map(product => <div className="col-sm-6" key={product.id}>
