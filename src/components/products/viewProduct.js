@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './products.css'
+import './products.scss'
 import Loading from '../Loading';
 import { getProduct } from "../../actions/productActions";
 import { connect } from 'react-redux';
@@ -12,13 +12,15 @@ class ViewProduct extends Component {
         super(props)
         this.state = {
             product: {},
+            productId: "",
             loading: false
         }
     }
 
     async componentDidMount() {
-        this.setState({ loading: true })
-        const product = await getProduct(this.props.match.params.id);
+        const productId = this.props.match.params.id;
+        this.setState({ loading: true, productId })
+        const product = await getProduct(productId);
         if (product) {
             this.setState({ loading: false, product })
         } else {
@@ -26,19 +28,34 @@ class ViewProduct extends Component {
         }
     }
 
+    async componentDidUpdate() {
+        if (this.props.match.params.id !== this.state.productId) {
+            const productId = this.props.match.params.id;
+            this.setState({ loading: true, productId })
+            const product = await getProduct(productId);
+            if (product) {
+                this.setState({ loading: false, product })
+            } else {
+                this.setState({ loading: false })
+            }
+        }
+    }
+
     render() {
         const { loading, product } = this.state;
         return (
-            <div className="view-product">
+            <div className="view-product products">
                 {loading && <Loading />}
 
                 <div className="card pt-5" style={{ "width": "100%" }}>
-                    <h3 className="card-title pt-2 text-center heading">{product.productName}</h3>
                     <div className="row d-flex justify-content-center" style={{ "width": "100%" }}>
-                        <div className="col-md-4">
-                            <img src={product.image} className="card-img rounded img-thumbnail pt-5" alt={product.productName} />
-                        </div>
-                        <div className="col-md-4 pt-3">
+                        <div className="col-md-8">
+
+                            <h3 className="card-title text-center pt-2 heading">{product.productName}</h3>
+                            <div className="image">
+                                <img src={product.image} className="card-img rounded img-thumbnail pt-5" alt={product.productName} />
+                            </div>
+
                             <div className="card-body">
                                 <h5 className="card-title heading">{product.productName}</h5>
                                 {product.availableQuantity && <p className="card-text">Quantity Available {product.availableQuantity}</p>}

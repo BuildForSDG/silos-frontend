@@ -1,0 +1,41 @@
+.navbar {
+  color: black;
+  background: #fdebe3;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: 600;
+
+  .nav-item {
+    padding-left: 35px;
+  }
+
+  #register {
+    background: #f0642b;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 120px;
+    width: 120px;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 940px) {
+    .nav-item-right {
+      position: absolute;
+      right: 0px;
+      padding-right: 80px;
+    }
+    #login {
+      padding: 0px;
+      margin-top: 9px;
+      padding-right: 10px;
+      color: black;
+      border-right: 1px solid black;
+    }
+
+    #register {
+      margin-left: 10px;
+    }
+  }
+}

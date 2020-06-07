@@ -6,7 +6,7 @@ import logo from '../../images/logo.png';
 import pics from '../../images/silos-image.png';
 import { registerUser } from "../../actions/authActions"
 
-import './register.css'
+import './register.scss'
 // import SuccessAlert from '../alert/successAlert';
 // import ErrorAlert from '../alert/errorAlert';
 import Loading from '../Loading';
@@ -80,7 +80,7 @@ class register extends Component {
     render() {
         const { errors, loading } = this.state
         return (
-            <div className='register' id="parent">
+            <div className='register'>
                 <div className="row" id="rowdiv">
                     <div className="col-lg-6 col-md-12 reg-div" id="reg-div">
                         {loading && <Loading />}

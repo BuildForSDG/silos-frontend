@@ -1,26 +1,23 @@
-#parent{
-    background-color: #fdebe3;
-    padding: 0px;
-    padding-top: 10px;
-    padding-bottom: 20px;
-}
+.register {
+  background-color: #fdebe3;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 20px;
 
-
-#rowdiv{
+  #rowdiv {
     background: white;
     padding: 20px;
     margin: 8%;
     margin-top: 5%;
-}
+  }
 
-.reg-div{
+  .reg-div {
     padding-top: 50px;
-
-}
-form{
+  }
+  form {
     padding-top: 50px;
-}
-.submit{
+  }
+  .submit {
     margin-top: 10px;
     margin-bottom: 30px;
     height: 35px;
@@ -29,32 +26,33 @@ form{
     border: none;
     border-radius: 50px;
     text-align: center;
-}
+  }
 
-.haveAccount{
+  .haveAccount {
     text-align: center;
-}
+  }
 
-.haveAccountLink{
+  .haveAccountLink {
     color: #f0642b;
-}
+  }
 
-.haveAccountLink:hover{
+  .haveAccountLink:hover {
     color: #f0642b;
-}
+  }
 
-.reg-image{
+  .reg-image {
     max-width: 100%;
-}
+  }
 
-@media only screen and (max-width:1000px){
-    .reg-image{
-        display: none;
+  @media only screen and (max-width: 1000px) {
+    .reg-image {
+      display: none;
     }
-}
+  }
 
-.errormessage{
+  .errormessage {
     color: red;
     font-size: 0.75em;
     display: relative;
+  }
 }
