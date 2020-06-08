@@ -47,7 +47,7 @@ class AllProducts extends Component {
         return (
             <div className="all-product p-5" id="allProducts">
                 {loading && <Loading />}
-                <div className="search pl-5">
+                <div className="search">
                     <div className="form-group form-row">
                         <div>
                             <h3 className="m-2 pb-5 text-secondary">
@@ -56,32 +56,32 @@ class AllProducts extends Component {
                             </h3>
                         </div>
                         <label className="sr-only">search</label>
-                        <div className="col-10">
+                        <div className="col-md-10">
                             <input type="text" className="form-control" placeholder="Search Products" />
                         </div>
-                        <div className="col-2">
+                        <div className="col-md-2">
                             <button type="submit" className="btn mb-2 btn-silos">search</button>
                         </div>
                     </div>
                 </div>
-                <div className="search-contents pl-5 pt-5">
+                <div className="search-contents pt-5">
                     <div className="d-flex justify-content-between">
                         <div className="description text-secondary">
                             <strong>All Products</strong> <br></br>
                             {totalProducts} results
                         </div>
                     </div>
-                    <div className="pt-5 row">
-                        {products.map(product => <div className="card col-md-3 col-sm-12 col-lg-3 p-3" key={product.id} style={{ "width": "25rem" }}>
+                    <div className="pt-5 row pr-0 pl-0">
+                        {products.map(product => <div className="card col-md-3 col-sm-12 col-lg-3 mb-2" key={product.id} style={{ "width": "25rem" }}>
                             <img className="card-img-top" src={product.image} alt={product.productName} />
                             <div className="card-body">
                                 <div className="row p-0">
-                                    <div className="col-8">
+                                    <div className="col-md-8">
                                         <h5 className="card-title">{product.productName}</h5>
                                         <p className="card-text">{(product.description).substring(0, 100)}</p>
                                     </div>
 
-                                    <div className="col-4 pt-2 pl-2">
+                                    <div className="col-md-4 pt-2">
                                         <strong>N {product.price}</strong><br></br>
                                     per {product.unit}
                                     </div>
