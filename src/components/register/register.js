@@ -87,7 +87,7 @@ class register extends Component {
 
                         <Link to="/" className="brand"><img src={logo} alt="silos-logo"></img></Link>
                         <form onSubmit={this.onSubmit}>
-                            <div className="row">
+                            <div className="row pr-0 pl-0">
 
                                 <div className="form-group col-lg-6 col-md-6">
                                     <label >FIRST NAME:</label>
@@ -102,7 +102,7 @@ class register extends Component {
                                 </div>
 
                             </div>
-                            <div className="row">
+                            <div className="row pr-0 pl-0">
                                 <div className="form-group col-lg-12 col-lg-6">
                                     <label >EMAIL:</label>
                                     <input name="email" id="email" type="text" value={this.state.email} onChange={this.onChange} className="form-control" required />
@@ -110,7 +110,7 @@ class register extends Component {
                                 </div>
                             </div>
 
-                            <div className="row">
+                            <div className="row pr-0 pl-0">
                                 <div className="form-group col-lg-6 col-md-6">
                                     <label >PHONE NUMBER:</label>
                                     <input name="phoneNumber" id="phoneNumber" type="phone" value={this.state.phoneNumber} onChange={this.onChange} className="form-control" required />
@@ -123,7 +123,7 @@ class register extends Component {
                                 </div>
                             </div>
 
-                            <div className="row">
+                            <div className="row pr-0 pl-0">
                                 <div className="form-group col-lg-12 col-md-12">
                                     <label>PASSWORD:</label>
                                     <input name="password" id="password" type="password" value={this.state.password} onChange={this.onChange} className="form-control" required />
@@ -131,14 +131,14 @@ class register extends Component {
                                 </div>
                             </div>
 
-                            <div className="row">
+                            <div className="row pr-0 pl-0">
                                 <div className="form-group col-lg-12 col-md-12">
                                     <label>CONFIRM PASSWORD:</label>
                                     <input name="confirmPassword" id="confirmPassword" type="password" value={this.state.confirmPassword} onChange={this.onChange} className="form-control" required />
                                 </div>
                             </div>
 
-                            <div className="row">
+                            <div className="row pr-0 pl-0">
                                 <div className="form-group col-lg-12 col-md-12">
                                     <label>ADDRESS:</label>
                                     <input name="address" id="address" type="text" value={this.state.address} onChange={this.onChange} className="form-control" required />
@@ -146,7 +146,7 @@ class register extends Component {
                                 </div>
                             </div>
 
-                            <div className="row">
+                            <div className="row pr-0 pl-0">
                                 <div className="form-group col-lg-12 col-md-12">
                                     <label>USERTYPE:</label>
                                     <select className="form-control" id="userType" name="userType" selected={this.state.userType} onChange={this.onChange} required>
