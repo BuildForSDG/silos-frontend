@@ -63,27 +63,25 @@ class Login extends Component {
         return (
             <div className='login' id="login">
                 <div className="row" id="rowdiv">
-                    <div className="col-lg-6 col-md-12 reg-div" id="reg-div">
+                    <div className="col-md-6 reg-div" id="reg-div">
                         {loading && <Loading />}
 
                         <Link to="/" className="brand"><img src={logo} alt="silos-logo"></img></Link>
                         <form onSubmit={this.onSubmit}>
 
-                            <div className="row">
-                                <div className="form-group col-lg-12 col-lg-6">
+                            
+                                <div className="form-group ">
                                     <label >EMAIL:</label>
                                     <input name="email" id="email" type="text" value={this.state.email} onChange={this.onChange} className="form-control" required />
                                     {errors.email && <p className="text-danger text-lowercase" > {errors.email}</p>}
                                 </div>
-                            </div>
 
-                            <div className="row">
-                                <div className="form-group col-lg-12 col-md-12">
+                            
+                                <div className="form-group">
                                     <label>PASSWORD:</label>
                                     <input name="password" id="password" type="password" value={this.state.password} onChange={this.onChange} className="form-control" required />
                                     {errors.password && <p className="text-danger text-lowercase" > {errors.password}</p>}
                                 </div>
-                            </div>
 
                             <div className="d-flex justify-content-center">
                                 <button className="submit submit-btn btn" type="submit" disabled={this.state.loading} >LOGIN</button>
@@ -94,7 +92,7 @@ class Login extends Component {
 
                         </form>
                     </div>
-                    <div className="col-lg-6 reg-img" id="reg-img">
+                    <div className="col-md-6 reg-img" id="reg-img">
                         <img src={pics} alt="silos-image" className="reg-image"></img>
                     </div>
                 </div>
