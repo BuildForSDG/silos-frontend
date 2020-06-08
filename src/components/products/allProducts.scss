@@ -1,0 +1,33 @@
+.all-product {
+  background-color: #fdebe3 !important;
+
+  .submit-btn {
+    width: 70%;
+  }
+
+  .card {
+    background-color: #ffff !important;
+    border: none !important;
+    /* min-height: 500px; */
+    border: solid 1px #dfdedd !important;
+  }
+
+  .heading {
+    color: #f0642b;
+  }
+
+  .img-thumbnail {
+    background-color: #fdebe3 !important;
+  }
+
+  .bottom-button {
+    position: relative !important;
+    bottom: 10px !important;
+  }
+
+  .btn-silos {
+    background-color: #f0642b !important;
+    color: white !important;
+    width: 200px !important;
+  }
+}

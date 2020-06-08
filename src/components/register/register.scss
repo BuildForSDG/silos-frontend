@@ -1,0 +1,58 @@
+.register {
+  background-color: #fdebe3;
+  padding: 0px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+
+  #rowdiv {
+    background: white;
+    padding: 20px;
+    margin: 8%;
+    margin-top: 5%;
+  }
+
+  .reg-div {
+    padding-top: 50px;
+  }
+  form {
+    padding-top: 50px;
+  }
+  .submit {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    height: 35px;
+    color: #fff;
+    background: #f0642b;
+    border: none;
+    border-radius: 50px;
+    text-align: center;
+  }
+
+  .haveAccount {
+    text-align: center;
+  }
+
+  .haveAccountLink {
+    color: #f0642b;
+  }
+
+  .haveAccountLink:hover {
+    color: #f0642b;
+  }
+
+  .reg-image {
+    max-width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .reg-image {
+      display: none;
+    }
+  }
+
+  .errormessage {
+    color: red;
+    font-size: 0.75em;
+    display: relative;
+  }
+}

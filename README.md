@@ -1,6 +1,6 @@
 barebones setup for JavaScript / Node projects replace this with a one-liner phrase describing this project or app
 
-[![Codacy Badge](https://img.shields.io/badge/Code%20Quality-D-red)](https://img.shields.io/badge/Code%20Quality-D-red)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a2a1575aef0944348d6d20b853bc6f77)](https://app.codacy.com/gh/BuildForSDG/silos-frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/silos-frontend&utm_campaign=Badge_Grade_Settings)
 
 
 ## About
@@ -45,6 +45,7 @@ This starter uses [Parcel](https://parceljs.org/getting_started.html) as the bun
 - Run your app in local dev mode: `yarn start`. This puts the bundled app in a `dist` folder, set up a local web server at localhost:1234, and continues to watch for your code changes which it syncs with the local server. This means if you loaded the app in a browser, it will auto-refresh as you code along. Feel free to use whatever bundler best meets your needs. Parcel was only added as a sample and for those looking for a simple but effective solution to the hassle of bundlers. 
 
 ## Authors
+Godwin Otokina https://github.com/wincodes https://twitter.com/GodwinOtokina
 
 List the team behind this project. Their names linked to their Github, LinkedIn, or Twitter accounts should siffice. Ok to signify the role they play in the project, including the TTL and mentor
 
