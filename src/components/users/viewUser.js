@@ -49,8 +49,6 @@ class ViewUser extends Component {
                                 {user.phoneNumber && <p className="card-text">Phone Number: {user.phoneNumber} </p>}
                                 {user.businessName && <p className="card-text">Organization: {user.businessName} </p>}
                                 <p className="card-text">{user.bio}</p>
-                                {user.userType === "producer" && <p className="card-text"><small className="text-muted">
-                                    <Link to={"/users/" + user.userId + "/products"} className="card-link">View Products</Link></small> </p>}
                             </div>
                         </div>
                         <div className="col-md-4 pt-3">

@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types' //ES6
 import { Link, withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
-import logo from '../../images/logo.png';
 import { createProduct, getCategories } from "../../actions/productActions"
+import pics from '../../images/home-cover.png';
 
 import './products.scss'
 import Loading from '../Loading';
@@ -87,14 +87,13 @@ class CreateProduct extends Component {
     render() {
         const { errors, loading, categories } = this.state
         return (
-            <div className='create-product products' id="parent">
+            <div className='create-product' id="parent">
                 <div className="row" id="rowdiv">
-                    <div className="col-lg-12 col-md-12 reg-div" id="reg-div">
+                    <div className="col-lg-6 col-md-6 create-div text-center">
                         {loading && <Loading />}
 
-                        <Link to="/" className="brand"><img src={logo} alt="silos-logo"></img></Link>
                         <form onSubmit={this.onSubmit}>
-                            <div className="row">
+                            <div className="row pt-5">
 
                                 <div className="form-group col-lg-6 col-md-6">
                                     <label >PRODUCT NAME:</label>
@@ -158,9 +157,14 @@ class CreateProduct extends Component {
                             </div>
 
                             <div className="d-flex justify-content-center">
-                                <button className="submit submit-btn" type="submit" disabled={this.state.loading} >CREATE</button>
+                                <button className="create-btn" type="submit" disabled={this.state.loading} >CREATE</button>
                             </div>
                         </form>
+                    </div>
+                    <div className="col-lg-6 d-none d-md-block d-lg-block" >
+                        <div className="d-flex justify-content-center">                     
+                         <img src={pics} alt="silos-image" className="reg-image image-fluid"></img>
+                        </div>
                     </div>
                 </div>
             </div>
